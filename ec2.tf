@@ -34,3 +34,7 @@ resource "aws_instance" "tailscale" {
     aws_subnet.my_subnet
   ] */
 }
+
+output "instance connection" {
+  value = "ssh -i ~/.ssh/id_rsa_tf ubuntu@${aws_instance.tailscale.public_ip}"
+}
