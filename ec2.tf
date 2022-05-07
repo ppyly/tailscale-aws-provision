@@ -35,6 +35,6 @@ resource "aws_instance" "tailscale" {
   ] */
 }
 
-output "instance connection" {
+output "instance_connection" {
   value = "ssh -i ~/.ssh/id_rsa_tf ubuntu@${aws_instance.tailscale.public_ip}"
 }
