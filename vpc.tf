@@ -1,7 +1,7 @@
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
   /* instance_tenancy     = default  */
-  enable_dns_support   = true 
+  enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
     Name = "my_vpc"
@@ -13,10 +13,15 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_route_table" "route_table" {
- vpc_id = aws_vpc.my_vpc.id
- tags = {
-        Name = "Route Table"
+  vpc_id = aws_vpc.my_vpc.id
+  tags = {
+    Name = "Route Table"
+  }
 }
+
+resource "aws_route_table_association" "vpc_association" {
+  subnet_id      = aws_subnet.my_subnet.id
+  route_table_id = aws_route_table.route_table.id
 }
 
 resource "aws_route" "internet_access" {
@@ -26,9 +31,9 @@ resource "aws_route" "internet_access" {
 }
 
 resource "aws_subnet" "my_subnet" {
-  vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "10.0.10.0/24"
-  availability_zone = "eu-central-1a"
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.10.0/24"
+  availability_zone       = "eu-central-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "my_subnet"
@@ -42,10 +47,10 @@ resource "aws_security_group" "allow_all" {
 
   ingress {
     /* description      = "description" */
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
 
