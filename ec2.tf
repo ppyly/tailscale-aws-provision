@@ -28,4 +28,7 @@ resource "aws_instance" "tailscale" {
   tags = {
     Name = "tailscale"
   }
+  depends_on = [
+    aws_subnet.my_subnet
+  ]
 }
