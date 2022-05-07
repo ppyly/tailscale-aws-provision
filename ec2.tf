@@ -24,7 +24,7 @@ resource "aws_instance" "tailscale" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.ssh_key.key_name
   security_groups = aws_security_group.allow_all.id
-  subnet_id = aws_subnet.my_subnet.id
+  subnet_id = [aws_subnet.my_subnet.id]
   tags = {
     Name = "tailscale"
   }
