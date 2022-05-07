@@ -25,9 +25,11 @@ resource "aws_instance" "tailscale" {
   key_name = aws_key_pair.ssh_key.key_name
   security_groups = [aws_security_group.allow_all.id]
   subnet_id = aws_subnet.my_subnet.id
+  associate_public_ip_address = true
   tags = {
     Name = "tailscale"
   }
+
   /* depends_on = [
     aws_subnet.my_subnet
   ] */
