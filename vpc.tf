@@ -1,9 +1,28 @@
 resource "aws_vpc" "my_vpc" {
   cidr_block = "10.0.0.0/16"
-
+  /* instance_tenancy     = default  */
+  enable_dns_support   = true 
+  enable_dns_hostnames = true
   tags = {
     Name = "my_vpc"
   }
+}
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.my_vpc.id
+}
+
+resource "aws_route_table" "route_table" {
+ vpc_id = aws_vpc.my_vpc.id
+ tags = {
+        Name = "Route Table"
+}
+}
+
+resource "aws_route" "internet_access" {
+  route_table_id         = aws_route_table.route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.gw.id
 }
 
 resource "aws_subnet" "my_subnet" {
