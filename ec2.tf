@@ -37,7 +37,7 @@ resource "aws_instance" "tailscale" {
       host        = aws_instance.tailscale.public_ip
       type        = "ssh"
       user        = var.ssh_user
-      private_key = file("${path.module}/${var.ssh_key_path}")
+      private_key = file(var.ssh_key_path)
     }
   }
   provisioner "local-exec" {
