@@ -8,3 +8,12 @@ variable "region" {
   default = ""
 }
 
+variable "ssh_user" {
+  type = string
+  default = ""
+}
+
+variable "ssh_key_path" {
+  type = string
+  default = ""
+}
