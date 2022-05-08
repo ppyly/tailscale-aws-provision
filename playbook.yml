@@ -29,6 +29,7 @@
     ansible.builtin.apt:
       name: tailscale
       state: latest
+      update_cache: yes
 
   - name: Enable IP forwarding
     ansible.builtin.shell: |
