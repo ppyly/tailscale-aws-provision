@@ -1,5 +1,5 @@
 ---
-- name: Docker test
+- name: tailscale cookbook
   hosts: all
   become: yes
 
