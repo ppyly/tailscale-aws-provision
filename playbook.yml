@@ -8,7 +8,7 @@
   - name: Set a hostname
     ansible.builtin.hostname:
       name: aws-exit-node
-      use: debian
+
 
   - name: Update all packages to their latest version
     ansible.builtin.apt:
