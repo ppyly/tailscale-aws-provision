@@ -5,12 +5,12 @@ variable "public_key" {
 
 variable "region" {
   type = string
-  default = ""
+  default = "eu-central-1"
 }
 
 variable "ssh_user" {
   type = string
-  default = ""
+  default = "ubuntu"
 }
 
 variable "ssh_key_path" {
