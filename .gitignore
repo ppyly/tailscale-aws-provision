@@ -29,3 +29,5 @@ override.tf.json
 # example: *tfplan*
 
 envvars.sh
+id_rsa_tf
+id_rsa_tf.pub
