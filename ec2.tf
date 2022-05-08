@@ -36,5 +36,5 @@ resource "aws_instance" "tailscale" {
 }
 
 output "instance_connection" {
-  value = "ssh -i ~/.ssh/id_rsa_tf ubuntu@${aws_instance.tailscale.public_ip}"
+  value = "ssh -o 'UserKnownHostsFile=/dev/null' -i ~/.ssh/id_rsa_tf ubuntu@${aws_instance.tailscale.public_ip}"
 }

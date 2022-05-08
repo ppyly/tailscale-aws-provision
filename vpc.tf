@@ -68,7 +68,7 @@ resource "aws_security_group" "allow_all" {
 }
 
 resource "aws_security_group_rule" "example" {
-  description       = "example rule where port 22 is available from vpc"
+  description       = "example rule where port 22 is available from everywhere"
   type              = "ingress"
   from_port         = 22
   to_port           = 22
