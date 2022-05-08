@@ -33,8 +33,8 @@ resource "aws_instance" "tailscale" {
   connection {
     host        = aws_instance.tailscale.public_ip
     type        = "ssh"
-    user        = var.ssh_user
-    private_key = file(var.ssh_key_path)
+    user        = "${var.ssh_user}"
+    private_key = "${file(var.ssh_key_path)}"
   }
   provisioner "remote-exec" {
     inline = [
