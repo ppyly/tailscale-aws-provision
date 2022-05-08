@@ -37,11 +37,11 @@ resource "aws_instance" "tailscale" {
       host        = aws_instance.tailscale.public_ip
       type        = "ssh"
       user        = var.ssh_user
-      private_key = file("${path.module}/${var.ssh_key_name}")
+      private_key = file("${path.module}/${var.ssh_key_path}")
     }
   }
   provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ${var.ssh_user} -i '${aws_instance.tailscale.public_ip},' --private-key ${path.module}/${var.ssh_key_name} playbook.yml"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ${var.ssh_user} -i '${aws_instance.tailscale.public_ip},' --private-key ${var.ssh_key_path} playbook.yml"
   }
 }
 

@@ -13,7 +13,7 @@ variable "ssh_user" {
   default = ""
 }
 
-variable "ssh_key_name" {
+variable "ssh_key_path" {
   type = string
   default = ""
 }
