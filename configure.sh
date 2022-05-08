@@ -15,3 +15,8 @@ export TF_VAR_public_key="${ssh_pub_key}"
 export TF_VAR_ssh_key_path="${DIR}/id_rsa_tf"
 EOF
 
+source envvars.sh
+
+terraform init
+terraform plan
+terraform apply --auto-approve
