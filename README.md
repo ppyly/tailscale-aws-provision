@@ -1,7 +1,9 @@
 ### To begin with
 First of all you need aws account
 
-[use link to create Access keys (access key ID and secret access key)](console.aws.amazon.com/iam/home?region=us-east-1&skipRegion=true#/security_credentials)    
+use link to create Access keys (access key ID and secret access key)
+
+https://console.aws.amazon.com/iam/home?region=us-east-1&skipRegion=true#/security_credentials    
 
 Clone repo
 
@@ -10,6 +12,7 @@ Clone repo
 Become owner and start tools installation script 
 
     sudo chown >username< tailscale-aws-provision -R
+    cd tailscale-aws-provision/
     ./tools-install.sh
 
 ### Node creation
